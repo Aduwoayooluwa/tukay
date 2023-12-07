@@ -17,7 +17,7 @@ import HomePage from "../home/App"
 			<div class=" w-full py-0 md:py-3 grid place-items-center">
 			<Navbar client:load />
 		</div>
-		<div class=" px-20 absolute w-full top-28 ">
+		<div class=" hidden md:flex px-20 absolute w-full top-28 ">
 			<svg width="300" height="100" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
 				<defs>
 					<linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -34,12 +34,12 @@ import HomePage from "../home/App"
 			
 		</div>
 			<section class="w-full -mt-0 md:-mt-10 flex flex-col md:flex-row items-center justify-between">
-			<div>
-				<h1 class="w-full md:w-[600px] text-start">Do you want to beg for <span class="text-gradient">tukay ?</span></h1>
+			<div class="mt-10 md:mt-0">
+				<p class="text-4xl font-semibold md:text-6xl w-full md:w-[600px] text-start">Do you want to beg for <span class="text-gradient">tukay ?</span></p>
 			</div>
 
 			<div>
-				<div class="absolute left-20 bottom-0">
+				<div class="absolute right-10 opacity-20 md:opacity-100 md:left-20 top-40 md:bottom-0">
 					<Shape client:load />
 				</div>
 				<img class="w-full md:w-[600px]" src={TukayBoyChristmas.src} alt="tukay boy" />
@@ -50,9 +50,10 @@ import HomePage from "../home/App"
 		<Currencies client:load />
 		<CTA client:load/>
 		<!-- <Footer client:load /> -->
+		
 	</main>
 
-
+	
 </Layout>
 
 <style>

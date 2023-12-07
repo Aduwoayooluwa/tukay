@@ -50,7 +50,7 @@ const Navbar: React.FC = () => {
           ))}
         </div>
       </div>
-      <button className="bg-[#0b2629] rounded-md text-white px-4 py-2  hover:bg-[#051517]">
+      <button className="bg-[#0b2629] rounded-full text-white px-4 py-2  hover:bg-[#051517]">
         Beg Now!
       </button>
     </nav>
