@@ -12,6 +12,10 @@ const Navbar: React.FC = () => {
     });
   };
 
+  React.useEffect(() => {
+    gsap.from("#begButton", { duration: 1, scale: 0, ease: "elastic.out(1, 0.3)" });
+  }, [])
+
   const hoverLeave = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     gsap.to(e.currentTarget, {
       duration: 0.3,
