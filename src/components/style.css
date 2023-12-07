@@ -1,0 +1,15 @@
+.shape {
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(45deg, #ebffb7, #00545f);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 15%;
+    transform: perspective(600px) rotateY(30deg);
+    cursor: pointer;
+}
