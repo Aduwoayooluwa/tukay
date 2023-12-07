@@ -35,11 +35,16 @@ import HomePage from "../home/App"
 		</div>
 			<section class="w-full -mt-0 md:-mt-10 flex flex-col md:flex-row items-center justify-between">
 			<div class="mt-10 md:mt-0">
-				<p class="text-4xl font-semibold md:text-6xl w-full md:w-[600px] text-start">Do you want to beg for <span class="text-gradient">tukay ?</span></p>
+				<h1 class="w-full hidden md:flex md:w-[600px] text-start">Do you want to beg for <span class="text-gradient">tukay ?</span></h1>
+				<p class="text-4xl flex md:hidden font-semibold md:text-6xl w-full md:w-[600px] text-start">Do you want to beg for <span class="text-gradient">tukay ?</span></p>
 			</div>
 
 			<div>
-				<div class="absolute right-10 opacity-20 md:opacity-100 md:left-20 top-40 md:bottom-0">
+				<div class="absolute right-10 md:right-0 opacity-20 top-40 md:top-0 bottom-10 flex md:hidden">
+					<Shape client:load />
+				</div>
+
+				<div class="absolute hidde md:flex opacity-100  left-20 bottom-0">
 					<Shape client:load />
 				</div>
 				<img class="w-full md:w-[600px]" src={TukayBoyChristmas.src} alt="tukay boy" />
@@ -50,10 +55,9 @@ import HomePage from "../home/App"
 		<Currencies client:load />
 		<CTA client:load/>
 		<!-- <Footer client:load /> -->
-		
 	</main>
 
-	
+
 </Layout>
 
 <style>
@@ -67,7 +71,7 @@ import HomePage from "../home/App"
 	.astro-a {
 		position: absolute;
 		top: -32px;
-		left: 50%;
+	 	left: 50%;
 		transform: translatex(-50%);
 		width: 220px;
 		height: auto;
