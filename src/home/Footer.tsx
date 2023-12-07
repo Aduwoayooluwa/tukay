@@ -68,7 +68,7 @@ const Footer = () => {
             <a href="https://instagram.com" className="hover:text-gray-300"><FaInstagram /></a>
             <a href="https://linkedin.com" className="hover:text-gray-300"><FaLinkedinIn /></a>
             </div>
-        `   </div>
+          </div>
         </motion.div>
 
         </motion.div>
