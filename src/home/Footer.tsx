@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 
@@ -63,7 +63,7 @@ const Footer = () => {
             <div>
             <h5 className="text-lg font-semibold mb-4">Follow Us</h5>
             <div className="flex space-x-4 text-sm">
-            <a href="https://facebook.com" className="hover:text-gray-300"><FaFacebook /></a>
+            <a href="https://facebook.com" className="hover:text-gray-300"><FaFacebookF /></a>
             <a href="https://twitter.com" className="hover:text-gray-300"><FaTwitter /></a>
             <a href="https://instagram.com" className="hover:text-gray-300"><FaInstagram /></a>
             <a href="https://linkedin.com" className="hover:text-gray-300"><FaLinkedinIn /></a>
