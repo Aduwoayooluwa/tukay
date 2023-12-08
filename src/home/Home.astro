@@ -1,0 +1,45 @@
+---
+import Shape from "../components/Shape";
+import Navbar from "./Navbar";
+import TukayBoyChristmas from "../assets/images/tukay_boy_2_no.png"
+
+---
+
+<section class="relative container hero">
+			<div class=" w-full py-0 md:py-3 grid place-items-center">
+			<Navbar client:load />
+		</div>
+		<div class=" hidden md:flex px-20 absolute w-full top-28 ">
+			<svg width="300" height="100" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+				<defs>
+					<linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+						<stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:0.9" />
+						<stop offset="100%" style="stop-color:rgb(0,0,0);stop-opacity:0.2" />
+					</linearGradient>
+				</defs>
+				<line x1="10" y1="10" x2="50" y2="50" stroke="url(#gradient)" stroke-width="4"/>
+				<line x1="50" y1="50" x2="10" y2="90" stroke="url(#gradient)" stroke-width="4"/>
+				<line x1="60" y1="10" x2="100" y2="50" stroke="url(#gradient)" stroke-width="4"/>
+				<line x1="100" y1="50" x2="60" y2="90" stroke="url(#gradient)" stroke-width="4"/>
+				<text x="110" y="60" font-family="Space mono" font-size="50" fill="url(#gradient)">tukay</text>
+			</svg>
+			
+		</div>
+			<section class="w-full -mt-0 md:-mt-10 flex flex-col md:flex-row items-center justify-between">
+			<div class="mt-10 md:mt-0">
+				<h1 class="w-full hidden md:flex md:w-[600px] text-start">Do you want to beg for <span class="text-gradient">tukay ?</span></h1>
+				<p class="text-4xl flex md:hidden font-semibold md:text-6xl w-full md:w-[600px] text-start">Do you want to beg for <span class="text-gradient">tukay ?</span></p>
+			</div>
+
+			<div>
+				<div class="absolute right-10 md:right-0 opacity-20 top-40 md:top-0 bottom-10 flex md:hidden">
+					<Shape client:load />
+				</div>
+
+				<div class="absolute hidde md:flex opacity-100  left-20 bottom-0">
+					<Shape client:load />
+				</div>
+				<img class="w-full md:w-[600px]" src={TukayBoyChristmas.src} alt="tukay boy" />
+			</div>
+			</section>
+		</section>

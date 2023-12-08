@@ -1,60 +1,88 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+"use client"
+import React, { useState } from 'react';
+import { navLinks, sideBarVariants, linkAnimationVariants } from "./utils"
+import { AnimatePresence, motion } from "framer-motion";
+import { Squash as Hamburger } from "hamburger-react"
+import Logo from '../assets/icons/logo';
 
-import { gsap } from 'gsap';
+const Navigation: React.FC = () => {
+    const [isHamburgerNavOpen, setIsHamburgerNavOpen] = useState(false)
 
-const Navbar: React.FC = () => {
-  const hoverEnter = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    gsap.to(e.currentTarget, {
-      duration: 0.3,
-      y: -3,
-      borderBottom: "2px solid #11535c",
-    });
-  };
+    return (
+        <div className="z-20 absolute bg-[#13151a] w-full text-white grid border-b place-items-center  ">
+            <nav className="py-4 px-4  md:px-0 flex items-center justify-between w-full md:w-4/5">
+                {/* logo */}
+                <div>
+                    <Logo />
+                </div>
 
-  React.useEffect(() => {
-    gsap.from("#begButton", { duration: 1, scale: 0, ease: "elastic.out(1, 0.3)" });
-  }, [])
+                {/* navigation links for medium screen size and desktop*/}
+                <div className="md:flex hidden items-center justify-evenly w-1/2">
 
-  const hoverLeave = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    gsap.to(e.currentTarget, {
-      duration: 0.3,
-      y: 0,
-      borderBottom: "2px solid transparent",
-    });
-  };
+                    {
+                        navLinks.map((link) => {
+                            return (
+                                <a className="p-2 hover:underline" key={link.id} href={link?.link}>
+                                    <p className="text-sm">{link?.title.toUpperCase()}</p>
+                                </a>
+                            )
+                        })
+                    }
 
-  return (
-    <nav className="flex  text-white items-center rounded-full w-full md:w-[600px] lg:w-[800px] justify-between p-4 bg-[#11535c] shadow-md">
-      <div className="flex items-center space-x-4">
-        {/* Your logo here */}
-        <motion.a 
-                href="/"
-                className="text-xl -mt-1 font-bold"
-              >
-          Tukay
-        </motion.a>
-        {/* Navigation Links */}
-        <div className="hidden md:flex space-x-4">
-          {['Home', 'About', 'Services', 'Contact'].map((item, index) => (
-            <motion.a 
-              key={index}
-              href={`#${item.toLowerCase()}`}
-              onMouseEnter={hoverEnter}
-              onMouseLeave={hoverLeave}
-              className="hover:text-green-600 cursor-pointer"
-              style={{ borderBottom: "2px solid transparent" }}
-            >
-              {item}
-            </motion.a>
-          ))}
+                    <span className="mx-3"></span>
+                    <button>Cart</button>
+
+                </div>
+                
+                {/* hamburger will only show on mobile screen */}
+              <Hamburger toggle={setIsHamburgerNavOpen} toggled={isHamburgerNavOpen} />
+                
+            </nav>
+
+            {/* aside/navigation for mobile screen */}
+            <AnimatePresence>
+                    {
+                    isHamburgerNavOpen && (                      
+                        <motion.aside className=" w-full z-20 h-[80vh]"
+                            initial={{ width: 0 }}
+                            animate={{ width:"100%" }}
+                            exit={{
+                                    width: 0,
+                                    transition: { delay: 0.7, duration: 0.3 }
+                                }}
+                            >
+                                <motion.div className="flex flex-col justify-center w-full"
+                                    initial="closed"
+                                    animate="open"
+                                    exit="closed"
+                                    variants={sideBarVariants}
+                                
+                                >
+
+                                    {
+                                        navLinks.map((link) => {
+                                            return (
+                                                <a className="p-3 my-3  hover:underline" key={link.id} href="">
+                                                    <motion.p
+                                                        whileHover={{ scale: 1.1 }}
+                                                        variants={linkAnimationVariants}
+                                                        className="text-center hover:underline text-sm">
+                                                        {link?.title.toUpperCase()}
+                                                    </motion.p>
+                                                </a>
+                                            )
+                                        })
+                                    }
+                                    <button className="mx-3 bg-[#11535c] text-white p-3 rounded">Register</button>
+
+                                </motion.div>
+                        </motion.aside>                        
+                        )
+                    }
+            </AnimatePresence>
         </div>
-      </div>
-      <button className="bg-[#0b2629] rounded-full text-white px-4 py-2  hover:bg-[#051517]">
-        Beg Now!
-      </button>
-    </nav>
-  );
-};
+        
+    )
+}
 
-export default Navbar;
+export default Navigation

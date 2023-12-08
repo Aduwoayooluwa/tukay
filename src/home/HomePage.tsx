@@ -36,7 +36,7 @@ const HeroSection = () => {
                     <div className="absolute left-20 bottom-0">
                         <Shape /> 
                     </div>
-                    <img className="w-full md:w-[600px]" src={"../assets/images/tukay_boy_2.jpg"} alt="tukay boy" />
+                    <img className="w-full md:w-[600px] lg:w-[800px]" src={"../assets/images/tukay_boy_2.jpg"} alt="tukay boy" />
                 </div>
             </section>
         </section>
